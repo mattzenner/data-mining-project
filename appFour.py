@@ -1,3 +1,4 @@
+#https://www.learnopencv.com/read-write-and-display-a-video-using-opencv-cpp-python/
 # https://github.com/madhav727/medium/blob/master/finger_counting_video.py
 # https://autokeras.com/tutorial/structured_data_classification/
 # https://www.kaggle.com/madz2000/cnn-using-keras-100-accuracy
@@ -6,7 +7,7 @@
 # the notebook provided and made small adjustments to values to customize
 
 import numpy as np  # NUMBERS
-import cv2 as cv
+import cv2 as cv #might
 import streamlit as st
 import streamlit.components.v1 as components
 from keras.models import load_model
