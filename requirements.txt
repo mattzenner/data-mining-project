@@ -121,3 +121,5 @@ widgetsnbextension==3.5.1
 wincertstore==0.2
 wrapt==1.12.1
 yarg==0.1.9
+opencv-contrib-python-headless
+libopencv
