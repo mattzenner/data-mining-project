@@ -46,7 +46,7 @@ st.title("ASL Translation Data Mining Project FALL2020")
 st.header("By: Hanna Bowman, Mark Dobres, Matt Zenner ")
 st.write()
 
-components.iframe("https://docs.google.com/document/d/13GSd2RFZXFlBHFAm_6_8_XLbOHc8OB1JF41P7_0Z5go/edit?usp=sharing", height=900)
+# components.iframe("https://docs.google.com/document/d/13GSd2RFZXFlBHFAm_6_8_XLbOHc8OB1JF41P7_0Z5go/edit?usp=sharing", height=900)
 
 st.subheader("Translation from live video to text: ")
 
