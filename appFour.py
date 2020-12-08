@@ -12,7 +12,7 @@ import streamlit as st
 import streamlit.components.v1 as components
 from keras.models import load_model
 
-saved_model_path = "//saved_model"
+saved_model_path = "saved_model//"
 model = load_model(saved_model_path)
 
 
