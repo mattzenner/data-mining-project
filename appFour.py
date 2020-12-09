@@ -83,7 +83,7 @@ if st.button("Begin..."):
             gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)  # create grayscale version
             gray = cv.resize(gray, (28, 28))  # resize to MNIST style
             prediction = model.predict(np.reshape(np.asarray(gray), (28, 28, 1)))  # model makes prediction
-            st.text(prediction)  # show the prediction
+            st.write(prediction)  # show the prediction
         except:
             pass
         if cv.waitKey(1) & 0xFF == ord('q'):
