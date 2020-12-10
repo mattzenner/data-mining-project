@@ -15,6 +15,10 @@ from keras.models import load_model
 saved_model_path = "saved_model//"
 model = load_model(saved_model_path)
 
+@st.cache()
+def num_to_letter(num):
+    a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ~0'
+    return {a.find(l)+1: l for l in a}[num]
 
 @st.cache()
 def skinmask(img):
@@ -77,13 +81,12 @@ if st.button("Begin..."):
                         cnt += 1
                         cv.circle(img, far, 4, [0, 0, 255], -1)
                 if cnt > 0:
-                    cnt = cnt+1
-                cv.putText(img, str(cnt), (0, 50), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv.LINE_AA)
+                    cnt = cnt+1]
+                gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)  # create grayscale version
+                gray = cv.resize(gray, (28, 28))  # resize to MNIST style
+                prediction = model.predict(np.reshape(np.asarray(gray), (28, 28, 1)))  # model makes prediction
+                cv.putText(img, str(prediction), (0, 50), cv.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv.LINE_AA) # show the prediction
             cv.imshow("img", img)
-            gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)  # create grayscale version
-            gray = cv.resize(gray, (28, 28))  # resize to MNIST style
-            prediction = model.predict(np.reshape(np.asarray(gray), (28, 28, 1)))  # model makes prediction
-            st.write(prediction)  # show the prediction
         except:
             pass
         if cv.waitKey(1) & 0xFF == ord('q'):
