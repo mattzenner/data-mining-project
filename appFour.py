@@ -81,7 +81,7 @@ if st.button("Begin..."):
                         cnt += 1
                         cv.circle(img, far, 4, [0, 0, 255], -1)
                 if cnt > 0:
-                    cnt = cnt+1]
+                    cnt = cnt+1
                 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)  # create grayscale version
                 gray = cv.resize(gray, (28, 28))  # resize to MNIST style
                 prediction = model.predict(np.reshape(np.asarray(gray), (28, 28, 1)))  # model makes prediction
