@@ -16,6 +16,14 @@ saved_model_path = "saved_model//"
 model = load_model(saved_model_path)
 
 @st.cache()
+def load_camera() -> cv2.VideoCapture:
+    CAMERA_FLAG = 0
+    camera = cv.VideoCapture(CAMERA_FLAG)
+    return camera
+
+
+
+@st.cache()
 def num_to_letter(num):
     a = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ ~0'
     return {a.find(l)+1: l for l in a}[num]
@@ -57,7 +65,8 @@ st.subheader("Translation from live video to text: ")
 
 if st.button("Begin..."):
     st.success("Press Q to exit camera")
-    cap = cv.VideoCapture(-1)  # capture webcam
+    #cap = cv.VideoCapture(-1)  # capture webcam
+    camera = load_camera()
     while cap.isOpened():
         _, img = cap.read()
         try:
