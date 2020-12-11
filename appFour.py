@@ -16,7 +16,7 @@ saved_model_path = "saved_model//"
 model = load_model(saved_model_path)
 
 #possible replacement for lines before cv.puttext and run it as str(prediciton(img)) within it 
-# def predict(frame):
+# def pred(frame):
 # 	gray = cv.cvtColor(frame, cv.COLOR_BGR2GRAY)  # create grayscale version
 #     gray = cv.resize(gray, (28, 28))  # resize to MNIST style
 #     prediction = model.predict(np.reshape(np.asarray(gray), (28, 28, 1)))  # model makes prediction
@@ -65,7 +65,7 @@ st.subheader("Translation from live video to text: ")
 
 if st.button("Begin..."):
     st.success("Press Q to exit camera")
-    cap = cv.VideoCapture()  # capture webcam
+    cap = cv.VideoCapture(0)  # capture webcam
     while cap.isOpened():
         _, img = cap.read()
         try:
