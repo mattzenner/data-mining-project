@@ -15,13 +15,6 @@ from keras.models import load_model
 saved_model_path = "saved_model//"
 model = load_model(saved_model_path)
 
-@st.cache()
-def load_camera():
-    CAMERA_FLAG = 0
-    camera = cv.VideoCapture(CAMERA_FLAG)
-    return camera
-
-
 
 @st.cache()
 def num_to_letter(num):
@@ -65,7 +58,7 @@ st.subheader("Translation from live video to text: ")
 
 if st.button("Begin..."):
     st.success("Press Q to exit camera")
-    #cap = cv.VideoCapture(-1)  # capture webcam
+    cap = cv.VideoCapture(0)  # capture webcam
     camera = load_camera()
     while cap.isOpened():
         _, img = cap.read()
