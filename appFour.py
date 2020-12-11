@@ -92,7 +92,6 @@ if st.button("Begin..."):
             pass
         if cv.waitKey(1) & 0xFF == ord('q'):
 #             break
-   
-            cv.destroyAllWindows(img)
-            cap.release()
-    
+    cv.destroyAllWindows(img)
+    cap.release()
+
