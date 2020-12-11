@@ -58,7 +58,7 @@ st.subheader("Translation from live video to text: ")
 
 if st.button("Begin..."):
     st.success("Press Q to exit camera")
-    cap = cv.VideoCapture(0)  # capture webcam
+    cap = cv.VideoCapture(-1)  # capture webcam
     while cap.isOpened():
         _, img = cap.read()
         try:
