@@ -16,7 +16,7 @@ saved_model_path = "saved_model//"
 model = load_model(saved_model_path)
 
 @st.cache()
-def load_camera() -> cv2.VideoCapture:
+def load_camera() -> cv.VideoCapture:
     CAMERA_FLAG = 0
     camera = cv.VideoCapture(CAMERA_FLAG)
     return camera
@@ -100,5 +100,7 @@ if st.button("Begin..."):
             pass
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
+   
+    cv.destroyAllWindows('img')
     cap.release()
-    # cv.destroyAllWindows()
+    
