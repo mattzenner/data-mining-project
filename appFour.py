@@ -65,7 +65,7 @@ st.subheader("Translation from live video to text: ")
 
 if st.button("Begin..."):
     st.success("Press Q to exit camera")
-    cap = cv.VideoCapture(-1)  # capture webcam
+    cap = cv.VideoCapture()  # capture webcam
     while cap.isOpened():
         _, img = cap.read()
         try:
@@ -98,6 +98,7 @@ if st.button("Begin..."):
         except:
             pass
         if cv.waitKey(1) & 0xFF == ord('q'):
-            cap.release()
-            cv2.destroyAllWindows("img")
+            
             break
+    cap.release()
+    cv2.destroyAllWindows()
