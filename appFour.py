@@ -16,7 +16,7 @@ saved_model_path = "saved_model//"
 model = load_model(saved_model_path)
 
 @st.cache()
-def load_camera() -> cv.VideoCapture:
+def load_camera():
     CAMERA_FLAG = 0
     camera = cv.VideoCapture(CAMERA_FLAG)
     return camera
