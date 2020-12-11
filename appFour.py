@@ -65,7 +65,7 @@ st.subheader("Translation from live video to text: ")
 
 if st.button("Begin..."):
     st.success("Press Q to exit camera")
-    cap = cv.VideoCapture(-1)  # capture webcam
+    cap = cv.VideoCapture('http://35.203.161.193:8501/')  # capture webcam
     while cap.isOpened():
         _, img = cap.read()
         try:
